@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aminah Bloom - Herbal Apothecary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d4a3e;
+            --dark-green: #1a2f28;
+            --light-green: #4a6b5a;
+            --cream: #f5f1eb;
+            --warm-white: #faf8f5;
+            --gold: #c9a962;
+            --gold-hover: #b8984f;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+            --text-lighter: #888888;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--warm-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: var(--primary-green);
+            color: rgba(255,255,255,0.95);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--cream);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 90px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .header-icons a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 95vh;
+            min-height: 800px;
+            background: linear-gradient(135deg, rgba(45, 74, 62, 0.4) 0%, rgba(26, 47, 40, 0.5) 100%),
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 16px 43px;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: 2px solid rgba(255,255,255,0.8);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-green);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Tagline Section */
+        .tagline {
+            text-align: center;
+            padding: 80px 40px;
+            background-color: var(--warm-white);
+        }
+
+        .tagline h2 {
+            font-size: 32px;
+            color: var(--primary-green);
+            font-style: italic;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Two Column Section - About */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+        }
+
+        .column-image {
+            background: url('https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&q=80') center/cover;
+            position: relative;
+        }
+
+        .column-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+        }
+
+        .column-content {
+            background-color: var(--cream);
+            padding: 100px 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .column-content h3 {
+            font-size: 48px;
+            color: var(--primary-green);
+            margin-bottom: 35px;
+            line-height: 1.15;
+            font-weight: 400;
+        }
+
+        .column-content p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .column-content .btn-primary {
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 120px 50px;
+            background-color: var(--warm-white);
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 52px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-header p {
+            font-size: 15px;
+            color: var(--text-light);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1300px;
+            margin: 0 auto 60px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 0 0 40px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(45, 74, 62, 0.03);
+        }
+
+        .product-card h4 {
+            font-size: 26px;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            padding: 0 30px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            padding: 0 30px;
+        }
+
+        .price {
+            font-size: 20px;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: block;
+            padding: 0 30px;
+        }
+
+        .product-card .btn-primary {
+            margin: 0 30px;
+            display: block;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 100px 50px;
+        }
+
+        .reviews-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .reviews-left h2 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        .reviews-left p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+        }
+
+        .reviewer {
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Science Section */
+        .science-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+        }
+
+        .science-content {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 100px 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .science-content h2 {
+            font-size: 48px;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        .science-content > p {
+            font-size: 15px;
+            line-height: 1.9;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .ingredient {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .ingredient h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .ingredient p {
+            font-size: 13px;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .science-image {
+            background: url('https://images.unsplash.com/photo-1515023115689-589c33041697?w=800&q=80') center/cover;
+            position: relative;
+        }
+
+        /* Batch Section */
+        .batch-section {
+            height: 550px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-attachment: fixed;
+        }
+
+        .batch-content h2 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .batch-content p {
+            font-size: 17px;
+            opacity: 0.95;
+            letter-spacing: 1px;
+        }
+
+        /* Consultation Section */
+        .consultation-section {
+            padding: 120px 50px;
+            background-color: var(--cream);
+            text-align: center;
+        }
+
+        .consultation-section h2 {
+            font-size: 48px;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .consultation-section > p {
+            max-width: 650px;
+            margin: 0 auto 70px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .consultation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .consultation-card {
+            background-color: white;
+            padding: 60px 40px;
+            border: 1px solid rgba(45, 74, 62, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .consultation-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .consultation-card h3 {
+            font-size: 28px;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .consultation-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .consultation-card .price {
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 35px;
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 120px 50px;
+            background-color: var(--warm-white);
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .blog-header h2 {
+            font-size: 48px;
+            color: var(--primary-green);
+            font-weight: 400;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+
+        .blog-image {
+            height: 100%;
+            min-height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 40px 40px 40px 0;
+        }
+
+        .blog-content h3 {
+            font-size: 32px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        .blog-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Journey Section */
+        .journey-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+        }
+
+        .journey-image {
+            background: url('https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=800&q=80') center/cover;
+            position: relative;
+        }
+
+        .journey-content {
+            background-color: var(--cream);
+            padding: 100px 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .journey-content h2 {
+            font-size: 48px;
+            color: var(--primary-green);
+            margin-bottom: 35px;
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        .journey-content p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-item i {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .journey-content .btn-primary {
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .newsletter p {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 14px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-form button {
+            padding: 18px 40px;
+            background-color: var(--gold);
+            color: white;
+            border: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 80px 50px 40px;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+        }
+
+        .footer-brand img {
+            height: 70px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-column h4 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 60px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .two-column,
+            .science-section,
+            .journey-section {
+                grid-template-columns: 1fr;
+            }
+
+            .column-image,
+            .science-image,
+            .journey-image {
+                height: 400px;
+            }
+
+            .products-grid,
+            .consultation-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-image {
+                min-height: 250px;
+            }
+
+            .blog-content {
+                padding: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .column-content,
+            .science-content,
+            .journey-content {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .section-header h2,
+            .reviews-left h2,
+            .batch-content h2 {
+                font-size: 36px;
+            }
+
+            .column-content h3,
+            .science-content h2,
+            .journey-content h2,
+            .consultation-section h2 {
+                font-size: 32px;
+            }
+
+            .ingredients-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Handcrafted Small-Batch • Herbal Wellness • Free Shipping on Orders $75+ • Est. 2026
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Company_Logo_-_Melissa_Audrey_Rose-1-removebg-preview.png" alt="Aminah Bloom - Herbal Apothecary">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#ingredients">Ingredients</a></li>
+                    <li><a href="#journal">Journal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#search"><i class="fas fa-search"></i></a>
+                <a href="#account"><i class="fas fa-user"></i></a>
+                <a href="#cart"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bloom into Balance</h1>
+            <p>Handcrafted herbal remedies rooted in ancestral wisdom, designed to bring gentle balance to your body, mind, and spirit.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn-primary">Shop Collection</a>
+                <a href="#consultation" class="btn-secondary">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline Section -->
+    <section class="tagline">
+        <h2>"Herbal medicine your grandmother would love, backed by modern science."</h2>
+    </section>
+
+    <!-- Two Column Section -->
+    <section class="two-column" id="about">
+        <div class="column-image"></div>
+        <div class="column-content">
+            <h3>Coming Home to Ourselves, One Herb at a Time</h3>
+            <p>We believe in the power of plants to heal, nourish, and restore. Our apothecary blends traditional herbal wisdom with contemporary wellness practices.</p>
+            <p>Every remedy is crafted with intention, using sustainably sourced botanicals that honor both the earth and your body. From seed to bottle, we maintain the highest standards of quality and integrity.</p>
+            <a href="#story" class="btn-primary">Read Our Story</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="shop">
+        <div class="section-header">
+            <h2>Crafted for Balance</h2>
+            <p>Each product is thoughtfully made with organic ingredients and time-honored herbal wisdom.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80')"></div>
+                <h4>Moon Milk Blend</h4>
+                <p>A calming evening tonic with ashwagandha, nutmeg, and lavender to ease you into restful sleep.</p>
+                <span class="price">$28.00</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&q=80')"></div>
+                <h4>Daily Greens Tonic</h4>
+                <p>Nutrient-dense superfood blend with spirulina, chlorella, and nettle for daily vitality.</p>
+                <span class="price">$34.00</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80')"></div>
+                <h4>Golden Turmeric Latte</h4>
+                <p>Warming anti-inflammatory blend with turmeric, ginger, and black pepper for daily wellness.</p>
+                <span class="price">$26.00</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        <a href="#all-products" class="btn-secondary" style="color: var(--primary-green); border-color: var(--primary-green);">View All Products</a>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-left">
+                <h2>50,000+ Verified 5-Star Reviews</h2>
+                <p>Hear from our community of women who've transformed their wellness journey with plant medicine.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"The Moon Milk has completely transformed my sleep. I wake up feeling rested and calm. Absolutely magical."</p>
+                    <div class="reviewer">— Sarah M.</div>
+                </div>
+                <div class="review-card">
+                    <p>"Finally, herbal remedies that actually taste delicious! My whole family loves the Daily Greens."</p>
+                    <div class="reviewer">— Jessica L.</div>
+                </div>
+                <div class="review-card">
+                    <p>"I've tried countless wellness brands, but Aminah Bloom's quality is unmatched. Forever customer!"</p>
+                    <div class="reviewer">— Amanda K.</div>
+                </div>
+                <div class="review-card">
+                    <p>"The consultation was life-changing. Finally understood what my body actually needed."</p>
+                    <div class="reviewer">— Rachel T.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="science-section" id="ingredients">
+        <div class="science-content">
+            <h2>Informed by Science</h2>
+            <p>Plants know what they're doing — they've been at this a while. We combine ancestral wisdom with modern research, using clinically studied ingredients that support your body's natural rhythms.</p>
+            <p>Healing isn't about quick fixes — it's about trusting the intelligence of plants.</p>
+            <div class="ingredients-list">
+                <div class="ingredient">
+                    <h4>Ashwagandha</h4>
+                    <p>Stress relief & adrenal support</p>
+                </div>
+                <div class="ingredient">
+                    <h4>Turmeric</h4>
+                    <p>Anti-inflammatory powerhouse</p>
+                </div>
+                <div class="ingredient">
+                    <h4>Lavender</h4>
+                    <p>Calming & sleep support</p>
+                </div>
+                <div class="ingredient">
+                    <h4>Nettle</h4>
+                    <p>Nutrient-dense vitality</p>
+                </div>
+                <div class="ingredient">
+                    <h4>Ginger</h4>
+                    <p>Digestive wellness</p>
+                </div>
+                <div class="ingredient">
+                    <h4>Elderberry</h4>
+                    <p>Immune support</p>
+                </div>
+            </div>
+        </div>
+        <div class="science-image"></div>
+    </section>
+
+    <!-- Batch Section -->
+    <section class="batch-section">
+        <div class="batch-content">
+            <h2>Where every batch is made with painstaking care</h2>
+            <p>Small-batch apothecary crafting in the heart of Vermont</p>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section class="consultation-section" id="consultation">
+        <h2>Book a Consultation</h2>
+        <p>Healing is personal. Work directly with our herbalist to create a custom wellness plan rooted in plant medicine and tailored to your unique body and goals.</p>
+        <div class="consultation-grid">
+            <div class="consultation-card">
+                <h3>Herbal Consultation</h3>
+                <p>A personalized 45-minute session to assess your wellness needs and create a custom herbal protocol.</p>
+                <div class="price">$125</div>
+                <a href="#" class="btn-primary">Book Now</a>
+            </div>
+            <div class="consultation-card">
+                <h3>Wellness Coaching</h3>
+                <p>3-month journey with ongoing support, custom formulations, and lifestyle guidance.</p>
+                <div class="price">$450</div>
+                <a href="#" class="btn-primary">Book Now</a>
+            </div>
+            <div class="consultation-card">
+                <h3>Group Workshop</h3>
+                <p>Learn to make your own herbal remedies in our intimate, hands-on workshops.</p>
+                <div class="price">$85</div>
+                <a href="#" class="btn-primary">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="journal">
+        <div class="blog-header">
+            <h2>Herbal Wisdom & Seasonal Rituals</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=600&q=80')"></div>
+                <div class="blog-content">
+                    <h3>Moon Milk: A Nightly Ritual for Deep Rest</h3>
+                    <p>Discover the ancient Ayurvedic practice of drinking warm spiced milk before bed and how it can transform your sleep quality.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1515023115689-589c33041697?w=600&q=80')"></div>
+                <div class="blog-content">
+                    <h3>5 Adaptogens Every Woman Should Know</h3>
+                    <p>From ashwagandha to holy basil, these powerful herbs help your body adapt to stress and find balance.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+        <div class="journey-image"></div>
+        <div class="journey-content">
+            <h2>Your Journey to Balance</h2>
+            <p>Rooted in tradition and guided by the Earth's generous bounty, Aminah Bloom is a passionate one-woman apothecary blending ancestral herbal knowledge with modern holistic wellness.</p>
+            <p>We believe healing is a returning, not a fixing.</p>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Organic & wildcrafted ingredients</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Small-batch production</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Sustainable sourcing</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Woman-owned & operated</span>
+                </div>
+            </div>
+            <a href="#" class="btn-primary">Read Our Story</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Join the Bloom</h2>
+        <p>Subscribe for herbal wisdom, seasonal recipes, and exclusive offers.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="Company_Logo_-_Melissa_Audrey_Rose-1-removebg-preview.png" alt="Aminah Bloom">
+                <p>Handcrafted herbal remedies rooted in ancestral wisdom. Made with love in Vermont.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Teas & Tonics</a></li>
+                    <li><a href="#">Tinctures</a></li>
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Ingredients</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aminah Bloom. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+</body>
+</html>
